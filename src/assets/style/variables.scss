@@ -1,0 +1,11 @@
+@mixin centerCenter {
+  display: flex;
+  justify-content: center;
+  align-content: center
+}
+
+$width:1150px;
+
+$sidebar-width:290px;
+
+$box-top-color: #f6f6f6;

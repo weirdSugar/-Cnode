@@ -133,46 +133,52 @@ i,
 em {
   font-style: normal;
 }
+:global(.qqqq){
+  color:red
+}
 /* 禁止选中文本 */
-.user-select-none {
+:global(.user-select-none){
+  -webkit-user-select: none;
+  -moz-user-select:none;
+  -ms-user-select: none;
   user-select:none;
 }
 /* 不换行 */
-.white-space-nowrap {
+:global(.white-space-nowrap){
     white-space: nowrap;
 }
 /* 居中对齐 */
-.text-align-center {
+:global(.text-align-center){
     text-align: center;
 }
 /* 向左对齐 */
-.text-align-left {
+:global(.text-align-left){
     text-align: left;
 }
 /* 向右对齐 */
-.text-align-right {
+:global(.text-align-right){
     text-align: right;
 }
 /* 没有边框 */
-.border-none {
+:global(.border-none){
     border: none;
 }
 /* 阻止事件 */
-.pointer-events-none {
+:global(.pointer-events-none){
     pointer-events: none;
 }
-.overflow-hidden {
+:global(.overflow-hidden){
     overflow: hidden;
 }
 
 
 
 
-.index-section {
+:global(.index-section){
   width: $width;
   margin: 20px auto;
 
-  .topics-container {
+  :global(.topics-container){
     float: left;
     width: calc(100% - #{$sidebar-width + 20});
   }

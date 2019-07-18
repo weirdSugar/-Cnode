@@ -1,14 +1,35 @@
 <template>
   <div id="app">
-    <div class="go-top user-select-none">
+    <div :class="[$style['go-top'],'user-select-none']" @click="goTop">
       <p>回</p>
       <p>顶</p>
       <p>部</p>
     </div>
+    <div :class="$style.block"></div>
+  <Footer />
   </div>
 </template>
+<script>
+import Footer from '@/components/Footer.vue'
 
-<style lang="scss">
+export default {
+  name:'App',
+  components:{
+    Footer
+  },
+  methods:{
+    goTop(){
+      window.scrollTo(0,0)
+    }
+  }
+}
+</script>
+
+<style lang="scss" module>
+.block{
+  height: 1500px;
+  background:#222
+}
 .go-top{
   box-sizing: border-box;
   padding: 5px 10px;

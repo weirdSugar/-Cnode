@@ -3,18 +3,17 @@ const path=require('path')
 const builtDate=moment().format('YYYYMMDDhhmmss')
 const isDev=process.env.NODE_ENV==='development'
 module.exports = {
-  publicPath: isDev ? '/CNode/' : '/',
+  publicPath: isDev ? './' : '/Cnode/',
 
   css: {
-    // modules: true,
+    modules: true,
     extract:{
       filename:`css_[name]_${builtDate}.css`,
       chunkFilename:`css_[name]_${builtDate}.css`
     },
     loaderOptions:{
       css:{
-        localIdentName:'[name]-[hash]',
-        camelCase:'only'
+        localIdentName:'[name]-[hash:base64:5]',
       },
       sass:{
         data: `@import "~@/assets/style/variables.scss";`

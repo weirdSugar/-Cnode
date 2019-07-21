@@ -2,10 +2,11 @@
  * @file axios http request config
  */
 import axios from 'axios'
-import {state} from '@/http/store.js'
+import {state} from '@/store'
 import NProgress from 'nprogress'
-import {Message as $message} from 'iview'
+import ivew from 'iview'
 
+const $message=ivew.Message
 const http=axios.create({
   baseURL:'https://cnodejs.org/api/v1/',
   timeout:6000,
@@ -13,7 +14,11 @@ const http=axios.create({
 
 http.interceptors.request.use(config =>{
   NProgress.start();
-  config.params.accesstoken=state.accessToken
+  if(config.method===get){
+    config.params.accesstoken=state.accessToken
+  }else if(config.post===post){
+    config.data.accesstoken=state.accessToken
+  }
   return config
 }, error=>{
   NProgress.done()
@@ -23,4 +28,15 @@ http.interceptors.request.use(config =>{
 
 http.interceptors.response.use(res =>{
   NProgress.done()
+  return res
+},error =>{
+  if(e.response.status === 404){
+    $message.warning('404 Not Found!')
+  }else{
+    $message.warning('请求超时！')
+  }
+  NProgress.done()
+  return Promise.reject(error)
 })
+
+export default http

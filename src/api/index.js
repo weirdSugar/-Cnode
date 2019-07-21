@@ -14,9 +14,11 @@ const API={
   // 新建评论 /topic/:topic_id/replies
   replies: '/api/v1/topic/',
   // 新建主题
-  newTopics: '/api/v1/topics',
+  newTopic: '/api/v1/topics',
+  // 点赞/取消点赞  /reply/:reply_id/ups 为评论点赞
+  like: '/api/v1/reply/',
   // 编辑主题
-  updateTopics: '/api/v1/topics/update',
+  updateTopic: '/api/v1/topics/update',
 }
 
 export default API

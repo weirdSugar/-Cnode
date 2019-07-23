@@ -2,7 +2,7 @@
  * @file axios http request config
  */
 import axios from 'axios'
-import {state} from '@/store'
+import state from '@/store'
 import NProgress from 'nprogress'
 import ivew from 'iview'
 
@@ -15,9 +15,9 @@ const http=axios.create({
 http.interceptors.request.use(config =>{
   NProgress.start();
   if(config.method===get){
-    config.params.accesstoken=state.accessToken
+    config.params.accesstoken=state.accesstoken
   }else if(config.post===post){
-    config.data.accesstoken=state.accessToken
+    config.data.accesstoken=state.accesstoken
   }
   return config
 }, error=>{

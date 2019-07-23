@@ -19,9 +19,12 @@ export default {
     Header,
     Footer
   },
-  methods:{
-    goTop(){
+  setup(){
+    const goTop=()=>{
       window.scrollTo(0,0)
+    }
+    return {
+      goTop
     }
   }
 }
